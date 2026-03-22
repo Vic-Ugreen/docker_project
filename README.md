@@ -353,6 +353,16 @@ docker compose down
 
 > Hlavná URL, kde je aplikácia dostupná v prehliadači: **http://localhost:8081**
 
+### 11.1 Dôležitá poznámka k portom (musia byť voľné)
+
+Aby pri vytvorení a spustení aplikácie nevznikli konflikty portov, na hostiteľovi musia byť voľné tieto porty:
+
+- `8081` (frontend)
+- `5000` (backend API)
+- `5050` (pgAdmin)
+
+Ak je niektorý z týchto portov už obsadený inou aplikáciou, Docker Compose skončí chybou pri štarte kontajnerov.
+
 ## 12. Ako prehliadať databázu cez pgAdmin
 
 pgAdmin je web UI pre správu PostgreSQL. Po spustení aplikácie je dostupný na `http://localhost:5050`.
