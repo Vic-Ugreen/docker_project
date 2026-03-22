@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sticky Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+  <div class="bg-shape bg-shape-4"></div>
+
+  <main class="page-shell">
+    <section id="authView" class="auth-view">
+      <div class="auth-card glass-card">
+        <div class="auth-header">
+          <p class="auth-welcome">Welcome to</p>
+          <h1>Sticky Tasks</h1>
+          <p class="auth-description">
+            Soft and colorful notes for your daily plans.
+          </p>
+        </div>
+
+        <div class="auth-form-card">
+          <h2 id="authTitle">Login form</h2>
+
+          <form id="registerForm" class="hidden">
+            <input type="text" id="registerUsername" placeholder="Username" required />
+            <input type="email" id="registerEmail" placeholder="Email" required />
+            <input type="password" id="registerPassword" placeholder="Password" required />
+            <button type="submit" class="primary-btn">Create account</button>
+          </form>
+
+          <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button type="submit" class="primary-btn">Sign in</button>
+          </form>
+        </div>
+
+        <section id="authMessageBox" class="message-box hidden"></section>
+
+        <div class="auth-switcher">
+          <span>or</span>
+          <button id="switchAuthModeBtn" class="secondary-btn auth-mode-btn" type="button">
+            Register
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="dashboard-view hidden">
+      <header class="dashboard-header glass-card">
+        <div>
+          <h2 id="welcomeText">Welcome, username</h2>
+          <p id="completionText">You've completed 0% of your tasks!</p>
+        </div>
+        <button id="logoutBtn" class="secondary-btn" type="button">Logout</button>
+      </header>
+
+      <section id="messageBox" class="message-box hidden glass-card"></section>
+
+      <section id="notesGrid" class="notes-grid"></section>
+    </section>
+  </main>
+
+  <div id="editorOverlay" class="editor-overlay hidden">
+    <div id="editorModal" class="editor-modal">
+      <div class="editor-header">
+        <h3 id="editorTitle">Edit note</h3>
+        <button id="closeEditorBtn" class="icon-close-btn" type="button" aria-label="Close editor">
+          ×
+        </button>
+      </div>
+
+      <form id="editorForm" class="editor-form">
+        <input type="hidden" id="editorTaskId" />
+        <input type="hidden" id="editorMode" value="edit" />
+
+        <label class="editor-label">
+          Title
+          <input type="text" id="editorTaskTitle" placeholder="Note title" required />
+        </label>
+
+        <label class="editor-label">
+          Description
+          <textarea id="editorTaskDescription" placeholder="Note description"></textarea>
+        </label>
+
+        <label class="editor-label">
+          Status
+          <select id="editorTaskStatus">
+            <option value="false">Not completed</option>
+            <option value="true">Completed</option>
+          </select>
+        </label>
+
+        <div class="editor-actions">
+          <button id="deleteTaskBtn" class="danger-btn" type="button">Delete note</button>
+          <div class="editor-actions-right">
+            <button id="cancelEditorBtn" class="secondary-btn" type="button">Cancel</button>
+            <button class="primary-btn" type="submit">Save note</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
